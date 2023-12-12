@@ -1,4 +1,4 @@
-module github.com/squ1ggly/squ1ggly-api-go
+module squ1ggly/squ1ggly-api-go
 
 go 1.21.5
 

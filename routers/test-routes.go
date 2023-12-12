@@ -1,8 +1,9 @@
 package routers
 
 import (
+	"squ1ggly/squ1ggly-api-go/controllers"
+
 	"github.com/gin-gonic/gin"
-	"github.com/squ1ggly/squ1ggly-api-go/controllers"
 )
 
 func TestRoutes(pRoutes *gin.RouterGroup) {

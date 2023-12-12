@@ -1,9 +1,10 @@
 package main
 
 import (
+	"squ1ggly/squ1ggly-api-go/middleware"
+	routers "squ1ggly/squ1ggly-api-go/routers"
+
 	"github.com/gin-gonic/gin"
-	"github.com/squ1ggly/squ1ggly-api-go/middleware"
-	routers "github.com/squ1ggly/squ1ggly-api-go/routers"
 )
 
 func main() {

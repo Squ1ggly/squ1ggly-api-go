@@ -3,8 +3,9 @@ package controllers
 import (
 	"net/http"
 
+	"squ1ggly/squ1ggly-api-go/middleware"
+
 	"github.com/gin-gonic/gin"
-	"github.com/squ1ggly/squ1ggly-api-go/middleware"
 )
 
 func TestController(context *gin.Context) {
