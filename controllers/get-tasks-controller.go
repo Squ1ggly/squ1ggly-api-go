@@ -9,6 +9,7 @@ import (
 
 func GetItem(context *gin.Context) {
 	tasksListName := context.Param("listName")
-	tasks := functions.GetRapidItems(context, &tasksListName)
+	filter := context.Query("$filter")
+	tasks := functions.GetRapidItems(context, &tasksListName, &filter)
 	context.IndentedJSON(http.StatusOK, tasks.Value)
 }

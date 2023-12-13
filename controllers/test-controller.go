@@ -1,10 +1,9 @@
 package controllers
 
 import (
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"squ1ggly/squ1ggly-api-go/types"
-
-	"github.com/gin-gonic/gin"
 )
 
 func TestController(context *gin.Context) {

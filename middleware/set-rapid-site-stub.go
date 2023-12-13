@@ -10,7 +10,7 @@ import (
 func SetRapidSiteStub(context *gin.Context) {
 	env := strings.ToLower(context.GetHeader("x-minilith-environment"))
 	if env == "" {
-		env = strings.ToLower(context.Param("env"))
+		env = strings.ToLower(context.Query("env"))
 	}
 
 	if env == "production" {
@@ -20,13 +20,13 @@ func SetRapidSiteStub(context *gin.Context) {
 	tenant := strings.ToLower(context.GetHeader("x-minilith-tenant"))
 
 	if tenant == "" {
-		tenant = strings.ToLower(context.Param("tenant"))
+		tenant = strings.ToLower(context.Query("tenant"))
 	}
 
 	site := strings.ToLower(context.GetHeader("x-minilith-site"))
 
 	if site == "" {
-		site = strings.ToLower(context.Param("site"))
+		site = strings.ToLower(context.Query("site"))
 	}
 
 	rapidSiteStub := &types.RapidSiteStub{

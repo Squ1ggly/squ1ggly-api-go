@@ -10,7 +10,7 @@ import (
 func RapidRoutes(pRoutes *gin.RouterGroup) {
 	rRoute := pRoutes.Group("/rapid")
 	{
-		rRoute.Use(middleware.SetRapidAuth)
+		rRoute.Use(middleware.SetRapidAuthMiddleware)
 		rRoute.GET("/get-rapid-items/:listName", controllers.GetItem)
 	}
 }
