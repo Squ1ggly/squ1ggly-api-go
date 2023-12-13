@@ -11,5 +11,6 @@ func PrimaryRoutes(primaryRoute string, router *gin.Engine) {
 	{
 		pRoutes.GET("/hello-world", controllers.HelloWorldController)
 	}
+	RapidRoutes(pRoutes)
 	TestRoutes(pRoutes)
 }

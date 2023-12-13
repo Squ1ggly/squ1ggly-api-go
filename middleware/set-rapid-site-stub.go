@@ -1,16 +1,11 @@
 package middleware
 
 import (
+	"squ1ggly/squ1ggly-api-go/types"
 	"strings"
 
 	"github.com/gin-gonic/gin"
 )
-
-type RapidSiteStub struct {
-	Environment string `json:"environment"`
-	Tenant      string `json:"tenant"`
-	Site        string `json:"site"`
-}
 
 func SetRapidSiteStub(context *gin.Context) {
 	env := strings.ToLower(context.GetHeader("x-minilith-environment"))
@@ -22,12 +17,24 @@ func SetRapidSiteStub(context *gin.Context) {
 		env = "prod"
 	}
 
-	rapidSiteStub := &RapidSiteStub{
-		Environment: env,
-		Tenant:      strings.ToLower(context.GetHeader("x-minilith-tenant")),
-		Site:        strings.ToLower(context.GetHeader("x-minilith-site")),
+	tenant := strings.ToLower(context.GetHeader("x-minilith-tenant"))
+
+	if tenant == "" {
+		tenant = strings.ToLower(context.Param("tenant"))
 	}
 
-	context.Set("rapidSiteStub", rapidSiteStub)
+	site := strings.ToLower(context.GetHeader("x-minilith-site"))
+
+	if site == "" {
+		site = strings.ToLower(context.Param("site"))
+	}
+
+	rapidSiteStub := &types.RapidSiteStub{
+		Environment: env,
+		Tenant:      tenant,
+		Site:        site,
+	}
+
+	context.Set("RapidSiteStub", rapidSiteStub)
 	context.Next()
 }
