@@ -1,10 +1,12 @@
 package main
 
 import (
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
+	"fmt"
 	"squ1ggly/squ1ggly-api-go/middleware"
 	routers "squ1ggly/squ1ggly-api-go/routers"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -17,6 +19,6 @@ func main() {
 	routers.PrimaryRoutes("/v1", router)
 	err := router.Run("localhost:3000")
 	if err != nil {
-		return
+		fmt.Println("Failed to start server with error: " + err.Error())
 	}
 }
